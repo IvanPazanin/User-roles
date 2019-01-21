@@ -26,7 +26,7 @@ namespace UsersRoles.Persistence
         {
             context.Database.EnsureCreated();
 
-            if (EnumerableExtensions.Any(context.Roles))
+            if(context.Roles.Any())
                 return;
 
             SeedRoles(context);
@@ -48,6 +48,36 @@ namespace UsersRoles.Persistence
                     UserId = Users.Keys.ElementAt(0),
                     RoleId = Roles.Keys.ElementAt(1)
                 },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(1),
+                    RoleId = Roles.Keys.ElementAt(2)
+                },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(1),
+                    RoleId = Roles.Keys.ElementAt(1)
+                },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(2),
+                    RoleId = Roles.Keys.ElementAt(0)
+                },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(2),
+                    RoleId = Roles.Keys.ElementAt(1)
+                },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(2),
+                    RoleId = Roles.Keys.ElementAt(2)
+                },
+                new UserRole
+                {
+                    UserId = Users.Keys.ElementAt(3),
+                    RoleId = Roles.Keys.ElementAt(1)
+                },
             };
 
             context.UserRoles.AddRange(userRoles);
@@ -57,14 +87,6 @@ namespace UsersRoles.Persistence
 
         private void SeedUsers(UsersRolesDbContext context)
         {
-            string password = "mygenericpassword";
-
-            var salt = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-
             var users = new List<User>
             {
                 new User
@@ -72,12 +94,29 @@ namespace UsersRoles.Persistence
                     FullName = (FullName)"Ivan Pažanin",
                     UserAvatarRelativePath = "/pictures/placeholder.jpg",
                     MyEmail = (MyEmail)"ipazan00@fesb.hr",
-                    Password = Convert.ToBase64String(KeyDerivation.Pbkdf2(password, salt, 
-                        KeyDerivationPrf.HMACSHA1, 10000, 256 / 8)),
+                },
+                new User
+                {
+                    FullName = (FullName)"Lukas Lawrence",
+                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    MyEmail = (MyEmail)"lukaslw@gmail.com",
+                },
+                new User
+                {
+                    FullName = (FullName)"Pedro Pascal Maxwell",
+                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    MyEmail = (MyEmail)"ppmaxwell@gmail.com",
+                },
+                new User
+                {
+                    FullName = (FullName)"Nicolette Ellis",
+                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    MyEmail = (MyEmail)"nellis@gmail.com",
                 },
             };
-            
-            Users.Add(users[0].Id, users[0]);
+
+            foreach (var user in users)
+                Users.Add(user.Id, user);
 
             context.AddRange(users);
 
@@ -102,9 +141,8 @@ namespace UsersRoles.Persistence
                 },
             };
 
-            Roles.Add(roles[0].Id, roles[0]);
-            Roles.Add(roles[1].Id, roles[1]);
-            Roles.Add(roles[2].Id, roles[2]);
+            foreach (var role in roles)
+                Roles.Add(role.Id, role);
 
             context.Roles.AddRange(roles);
 

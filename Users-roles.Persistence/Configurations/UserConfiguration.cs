@@ -12,7 +12,6 @@ namespace UsersRoles.Persistence.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(e => e.Id).HasMaxLength(100);
-            builder.Property(e => e.Password).HasMaxLength(300).IsRequired();
 
             builder.OwnsOne(e => e.MyEmail);
             builder.OwnsOne(e => e.FullName);

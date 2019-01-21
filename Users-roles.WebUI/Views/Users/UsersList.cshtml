@@ -16,6 +16,7 @@
     </div>
     @foreach (var user in Model.Users)
     {
+        <hr/>
         <div class="row">
             <div class="col-md-6">
                 <div>@user.Name</div>
@@ -26,14 +27,15 @@
                 <div class="col-md-1">
                     @if (user.Roles.Any(u => u.RoleId == role.Id))
                     {
-                        <input type="checkbox" name="role" checked>
+                        <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" checked onchange="editUserRoles('@user.Id','@role.Id')">
                     }
                     else
                     {
-                        <input type="checkbox" name="role">
+                        <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" onchange="editUserRoles('@user.Id','@role.Id')">
                     }
                 </div>
             }
         </div>
     }
 </div>
+<script src="../App/Src/Js/Users/EditUserRoles.js"></script>

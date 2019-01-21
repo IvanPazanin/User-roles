@@ -16,6 +16,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using UsersRoles.Application.Users.Queries.GetUsersList;
 using UsersRoles.Persistence;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace UsersRoles.WebUI
 {
@@ -59,13 +61,19 @@ namespace UsersRoles.WebUI
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "App")),
+                RequestPath = "/App"
+            });
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Users}/{action=UsersList}/{id?}");
             });
         }
     }

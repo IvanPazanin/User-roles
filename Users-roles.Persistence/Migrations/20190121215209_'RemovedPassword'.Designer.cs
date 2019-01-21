@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsersRoles.Persistence;
 
 namespace Users_roles.Persistence.Migrations
 {
     [DbContext(typeof(UsersRolesDbContext))]
-    partial class UsersRolesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190121215209_'RemovedPassword'")]
+    partial class RemovedPassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

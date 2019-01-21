@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UsersRoles.Persistence;
+using UsersRoles.Application.Users.Models;
 
 namespace UsersRoles.Application.Users.Queries.GetUsersList
 {
@@ -25,6 +26,7 @@ namespace UsersRoles.Application.Users.Queries.GetUsersList
                 .Take(request.Count)
                 .Include(u => u.UserRoles)
                 .ThenInclude(ur => ur.Role)
+                .OrderBy(u => u.FullName.FirstName)
                 .ToListAsync(cancellationToken);
 
             return new UsersListViewModel

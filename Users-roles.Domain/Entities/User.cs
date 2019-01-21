@@ -17,8 +17,6 @@ namespace UsersRoles.Domain.Entities
 
         public MyEmail MyEmail { get; set; }
 
-        public string Password { get; set; }
-
         public FullName FullName { get; set; }
 
         public string UserAvatarRelativePath { get; set; }

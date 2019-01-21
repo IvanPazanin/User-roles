@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Text;
 using UsersRoles.Domain.Entities;
 
-namespace UsersRoles.Application.Users.Queries.GetUsersList
+namespace UsersRoles.Application.Users.Models
 {
     public class RoleLookupModel
     {
