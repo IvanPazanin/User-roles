@@ -30,23 +30,15 @@ namespace Users_roles.Domain.ValueObjects
             for (var i = 0; i < matches.Count; i++)
             {
                 if (i == 0)
-                {
-                    var name = matches[i].Value;
-                    FirstName = name[0].ToString().ToUpper() + name.Remove(0, 1);
-                }
-                else if (i == matches.Count - 1)
-                {
-                    var surname = matches[i].Value;
-                    LastName = surname[0].ToString().ToUpper() + surname.Remove(0, 1);
-                }
-                else
-                {
-                    var middleName = matches[i].Value;
+                    FirstName = matches[i].Value.FirstLetterToUpper();
 
+                else if (i == matches.Count - 1)
+                    LastName = matches[i].Value.FirstLetterToUpper();
+
+                else
                     MiddleName += i < matches.Count - 2
-                        ? middleName[0].ToString().ToUpper() + middleName.Remove(0, 1) + " "
-                        : middleName[0].ToString().ToUpper() + middleName.Remove(0, 1);
-                }
+                        ? matches[i].Value.FirstLetterToUpper() + " "
+                        : matches[i].Value.FirstLetterToUpper();
             }
         }
 

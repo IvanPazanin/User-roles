@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users-roles.Domain", "Users
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users-roles.Persistence", "Users-roles.Persistence\Users-roles.Persistence.csproj", "{280015CA-833F-4800-833B-57403578E909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users-roles.Infrastructure", "Users-roles.Infrastructure\Users-roles.Infrastructure.csproj", "{B6924D68-A8ED-48FC-BD73-D7DA98459C46}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{280015CA-833F-4800-833B-57403578E909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{280015CA-833F-4800-833B-57403578E909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{280015CA-833F-4800-833B-57403578E909}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6924D68-A8ED-48FC-BD73-D7DA98459C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6924D68-A8ED-48FC-BD73-D7DA98459C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6924D68-A8ED-48FC-BD73-D7DA98459C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6924D68-A8ED-48FC-BD73-D7DA98459C46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,7 +48,6 @@ Global
 		{D897B0CC-EA1A-4958-B3D0-1F98621A579A} = {5DFA452A-B3BE-4FA5-A4DF-C1A1DEA22FAF}
 		{7FBD3B12-C04A-4C0E-8A00-40144053008A} = {5DFA452A-B3BE-4FA5-A4DF-C1A1DEA22FAF}
 		{280015CA-833F-4800-833B-57403578E909} = {868A5194-282A-4740-8052-C006616BE187}
-		{B6924D68-A8ED-48FC-BD73-D7DA98459C46} = {868A5194-282A-4740-8052-C006616BE187}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23A8CE95-0B2B-4043-BD6B-B454E7F7087A}
