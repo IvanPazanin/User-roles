@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore.Internal;
-using Users_roles.Domain.Entities;
-using Users_roles.Domain.Enumerations;
-using Users_roles.Domain.ValueObjects;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using UsersRoles.Domain.Entities;
+using UsersRoles.Domain.Enumerations;
+using UsersRoles.Domain.ValueObjects;
 
-namespace Users_roles.Persistence
+namespace UsersRoles.Persistence
 {
     public class UsersRolesInitializer
     {
@@ -69,9 +69,9 @@ namespace Users_roles.Persistence
             {
                 new User
                 {
-                    Name = (FullName)"Ivan Pažanin",
+                    FullName = (FullName)"Ivan Pažanin",
                     UserAvatarRelativePath = "/pictures/placeholder.jpg",
-                    Email = (Email)"ipazan00@fesb.hr",
+                    MyEmail = (MyEmail)"ipazan00@fesb.hr",
                     Password = Convert.ToBase64String(KeyDerivation.Pbkdf2(password, salt, 
                         KeyDerivationPrf.HMACSHA1, 10000, 256 / 8)),
                 },
@@ -90,15 +90,15 @@ namespace Users_roles.Persistence
             {
                 new Role
                 {
-                    RoleType = RoleType.Admin
+                    RoleName = RoleName.Admin
                 },
                 new Role
                 {
-                    RoleType = RoleType.User
+                    RoleName = RoleName.User
                 },
                 new Role
                 {
-                    RoleType = RoleType.Guest
+                    RoleName = RoleName.Guest
                 },
             };
 

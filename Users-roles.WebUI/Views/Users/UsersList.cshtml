@@ -1,0 +1,39 @@
+﻿@model UsersListViewModel
+
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<h2>Users List</h2>
+
+<div>
+    <div class="row">
+        <div class="col-md-6"><strong>User</strong></div>
+        @foreach (var role in Model.AllRoles)
+        {
+            <div class="col-md-1"><strong>@role.RoleName</strong></div>
+        }
+    </div>
+    @foreach (var user in Model.Users)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div>@user.Name</div>
+                <div>@user.Email</div>
+            </div>
+            @foreach (var role in Model.AllRoles)
+            {
+                <div class="col-md-1">
+                    @if (user.Roles.Any(u => u.RoleId == role.Id))
+                    {
+                        <input type="checkbox" name="role" checked>
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="role">
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using Users_roles.Domain.Entities;
-using Users_roles.Persistence.Extensions;
+using UsersRoles.Domain.Entities;
+using UsersRoles.Persistence.Extensions;
 
-namespace Users_roles.Persistence
+namespace UsersRoles.Persistence
 {
     public class UsersRolesDbContext : DbContext
     {

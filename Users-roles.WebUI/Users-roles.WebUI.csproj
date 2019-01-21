@@ -10,7 +10,13 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Seq.Extensions.Logging" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Users-roles.Application\Users-roles.Application.csproj" />
+    <ProjectReference Include="..\Users-roles.Persistence\Users-roles.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

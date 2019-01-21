@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Users_roles.Domain.Enumerations;
+using UsersRoles.Domain.Enumerations;
 
-namespace Users_roles.Domain.Entities
+namespace UsersRoles.Domain.Entities
 {
     public class Role
     {
@@ -15,7 +15,7 @@ namespace Users_roles.Domain.Entities
 
         public string Id { get; set; }
 
-        public RoleType RoleType { get; set; }
+        public RoleName RoleName { get; set; }
 
         public ICollection<UserRole> UserRoles { get; private set; }
     }

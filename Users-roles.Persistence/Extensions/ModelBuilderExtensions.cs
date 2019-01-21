@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Users_roles.Persistence.Extensions
+namespace UsersRoles.Persistence.Extensions
 {
     public static class ModelBuilderExtensions
     {

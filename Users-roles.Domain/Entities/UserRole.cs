@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Users_roles.Domain.Entities
+namespace UsersRoles.Domain.Entities
 {
     public class UserRole
     {

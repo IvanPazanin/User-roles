@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Users_roles.Domain.Enumerations
+namespace UsersRoles.Domain.Enumerations
 {
-    public enum RoleType
+    public enum RoleName
     {
         Admin = 1,
         User = 2,

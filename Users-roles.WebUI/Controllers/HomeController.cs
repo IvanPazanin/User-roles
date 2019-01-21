@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Users_roles.WebUI.Models;
+using UsersRoles.WebUI.Models;
 
-namespace Users_roles.WebUI.Controllers
+namespace UsersRoles.WebUI.Controllers
 {
     public class HomeController : Controller
     {

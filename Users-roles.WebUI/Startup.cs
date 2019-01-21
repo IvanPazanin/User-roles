@@ -9,8 +9,15 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FluentValidation.AspNetCore;
+using MediatR;
+using MediatR.Pipeline;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using UsersRoles.Application.Users.Queries.GetUsersList;
+using UsersRoles.Persistence;
 
-namespace Users_roles.WebUI
+namespace UsersRoles.WebUI
 {
     public class Startup
     {
@@ -21,21 +28,23 @@ namespace Users_roles.WebUI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddMediatR(typeof(GetUsersListQueryHandler).GetTypeInfo().Assembly);
+
+            services.AddDbContext<UsersRolesDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("UsersRolesConnectionString")));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Users_roles.Domain.Infrastructure
+namespace UsersRoles.Domain.Infrastructure
 {
     public static class FullNameExtensions
     {

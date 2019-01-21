@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Users_roles.Domain.ValueObjects;
+using UsersRoles.Domain.ValueObjects;
 
-namespace Users_roles.Domain.Entities
+namespace UsersRoles.Domain.Entities
 {
     public class User
     {
@@ -15,11 +15,11 @@ namespace Users_roles.Domain.Entities
 
         public string Id { get; set; }
 
-        public Email Email { get; set; }
+        public MyEmail MyEmail { get; set; }
 
         public string Password { get; set; }
 
-        public FullName Name { get; set; }
+        public FullName FullName { get; set; }
 
         public string UserAvatarRelativePath { get; set; }
 

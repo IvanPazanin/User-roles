@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using Users_roles.Domain.Infrastructure;
+using UsersRoles.Domain.Infrastructure;
 
-namespace Users_roles.Domain.ValueObjects
+namespace UsersRoles.Domain.ValueObjects
 {
     public class FullName : ValueObject
     {
@@ -13,6 +13,10 @@ namespace Users_roles.Domain.ValueObjects
         public string MiddleName { get; private set; }
 
         public string LastName { get; private set; }
+
+        private FullName()
+        {
+        }
 
         public FullName(string fullName)
         {

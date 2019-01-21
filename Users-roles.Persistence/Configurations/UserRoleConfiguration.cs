@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Users_roles.Domain.Entities;
+using UsersRoles.Domain.Entities;
 
-namespace Users_roles.Persistence.Configurations
+namespace UsersRoles.Persistence.Configurations
 {
     public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
     {

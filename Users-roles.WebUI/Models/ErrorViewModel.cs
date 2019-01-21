@@ -1,6 +1,6 @@
 using System;
 
-namespace Users_roles.WebUI.Models
+namespace UsersRoles.WebUI.Models
 {
     public class ErrorViewModel
     {

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Text;
 using System.Threading;
-using Users_roles.Domain.Infrastructure;
+using UsersRoles.Domain.Infrastructure;
 
-namespace Users_roles.Domain.ValueObjects
+namespace UsersRoles.Domain.ValueObjects
 {
-    public class Email : ValueObject
+    public class MyEmail : ValueObject
     {
         public string Value { get; set; }
 
-        public Email(string email)
+        private MyEmail()
+        {
+        }
+
+        public MyEmail(string email)
         {
             try
             {
@@ -20,16 +24,16 @@ namespace Users_roles.Domain.ValueObjects
             }
             catch (FormatException ex)
             {
-                throw new Exception($"Email adress: {email} is not valid!\n {ex.Message}");
+                throw new Exception($"MyEmail adress: {email} is not valid!\n {ex.Message}");
             }
         }
 
-        public static explicit operator Email(string email)
+        public static explicit operator MyEmail(string email)
         {
-            return new Email(email);
+            return new MyEmail(email);
         }
 
-        public static implicit operator string(Email email)
+        public static implicit operator string(MyEmail email)
         {
             return email.ToString();
         }
