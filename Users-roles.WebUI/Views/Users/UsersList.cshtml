@@ -8,8 +8,16 @@
 
 
 <div class="row users-header">
-    <div class="col-md-1"><strong>LOGO</strong></div>
-    <div class="col-md-4 col-md-offset-1">Users</div>
+    <div class="col-md-1">
+        <a style="text-decoration: none;" asp-controller="Users" asp-action="UsersList">
+            <div style="color:white;"><strong>LOGO</strong></div>
+        </a>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+        <a style="text-decoration: none;" asp-controller="Users" asp-action="UsersList">
+            <div style="color:white;">Users</div>
+        </a>
+    </div>
     <div class="col-md-6 flex-roles-container">
         @{
             foreach (var role in Model.AllRoles)
@@ -25,11 +33,14 @@
     {
         isGrey = !isGrey;
         <div class="users-row row @(isGrey ? "gray-row" : "white-row")">
-            <img class="col-md-offset-2 col-md-1  avatar-image"
-                 src="../App/Src/Images/@user.UserAvatarRelativePath" alt="avatar" />
-            <div class="col-md-3">
-                <div class="user-name">@user.Name</div>
-                <div class="user-email">@user.Email</div>
+
+            <div class="col-md-offset-2 col-md-4">
+                <img class="avatar-image display-inline-block"
+                     src="../App/Src/Images/@user.UserAvatarRelativePath" alt="avatar" />
+                <div class="user-info display-inline-block">
+                    <div class="user-name">@user.Name</div>
+                    <div class="user-email">@user.Email</div>
+                </div>
             </div>
             <div class="col-md-6 flex-roles-container">
                 @foreach (var role in Model.AllRoles)
@@ -37,12 +48,12 @@
                     <div class="flex-roles-child">
                         @if (user.Roles.Any(u => u.RoleId == role.Id))
                         {
-                            <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" checked 
+                            <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" checked
                                    onchange="editUserRoles('@user.Id', '@role.Id')">
                         }
                         else
                         {
-                            <input class="form-check-input" id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" 
+                            <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role"
                                    onchange="editUserRoles('@user.Id', '@role.Id')">
                         }
                     </div>
