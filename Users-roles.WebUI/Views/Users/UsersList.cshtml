@@ -4,38 +4,51 @@
     ViewData["Title"] = "Users List";
 }
 
-<h2>Users List</h2>
+<link rel="stylesheet" href="../App/Src/Css/UsersStyle.css" />
 
-<div>
-    <div class="row">
-        <div class="col-md-6"><strong>User</strong></div>
-        @foreach (var role in Model.AllRoles)
-        {
-            <div class="col-md-1"><strong>@role.RoleName</strong></div>
+
+<div class="row users-header">
+    <div class="col-md-1"><strong>LOGO</strong></div>
+    <div class="col-md-4 col-md-offset-1">Users</div>
+    <div class="col-md-6 flex-roles-container">
+        @{
+            foreach (var role in Model.AllRoles)
+            {
+                <div class="flex-roles-child">@role.RoleName</div>
+            }
         }
     </div>
-    @foreach (var user in Model.Users)
+</div>
+@{
+    var isGrey = false;
+    foreach (var user in Model.Users)
     {
-        <hr/>
-        <div class="row">
-            <div class="col-md-6">
-                <div>@user.Name</div>
-                <div>@user.Email</div>
+        isGrey = !isGrey;
+        <div class="users-row row @(isGrey ? "gray-row" : "white-row")">
+            <img class="col-md-offset-2 col-md-1  avatar-image"
+                 src="../App/Src/Images/@user.UserAvatarRelativePath" alt="avatar" />
+            <div class="col-md-3">
+                <div class="user-name">@user.Name</div>
+                <div class="user-email">@user.Email</div>
             </div>
-            @foreach (var role in Model.AllRoles)
-            {
-                <div class="col-md-1">
-                    @if (user.Roles.Any(u => u.RoleId == role.Id))
-                    {
-                        <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" checked onchange="editUserRoles('@user.Id','@role.Id')">
-                    }
-                    else
-                    {
-                        <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" onchange="editUserRoles('@user.Id','@role.Id')">
-                    }
-                </div>
-            }
+            <div class="col-md-6 flex-roles-container">
+                @foreach (var role in Model.AllRoles)
+                {
+                    <div class="flex-roles-child">
+                        @if (user.Roles.Any(u => u.RoleId == role.Id))
+                        {
+                            <input id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" checked 
+                                   onchange="editUserRoles('@user.Id', '@role.Id')">
+                        }
+                        else
+                        {
+                            <input class="form-check-input" id="input-@(user.Id)-@(role.Id)" type="checkbox" name="role" 
+                                   onchange="editUserRoles('@user.Id', '@role.Id')">
+                        }
+                    </div>
+                }
+            </div>
         </div>
     }
-</div>
-<script src="../App/Src/Js/Users/EditUserRoles.js"></script>
+}
+<script src="../App/Src/Js/EditUserRoles.js"></script>

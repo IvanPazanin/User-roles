@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using MediatR;
-using UsersRoles.Application.Users.Models;
 
 namespace Users_roles.Application.Users.Commands.EditUserRoles
 {

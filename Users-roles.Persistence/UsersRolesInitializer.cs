@@ -92,25 +92,25 @@ namespace UsersRoles.Persistence
                 new User
                 {
                     FullName = (FullName)"Ivan Pažanin",
-                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    UserAvatarRelativePath = "avatar-placeholder.png",
                     MyEmail = (MyEmail)"ipazan00@fesb.hr",
                 },
                 new User
                 {
                     FullName = (FullName)"Lukas Lawrence",
-                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    UserAvatarRelativePath = "avatar-placeholder.png",
                     MyEmail = (MyEmail)"lukaslw@gmail.com",
                 },
                 new User
                 {
                     FullName = (FullName)"Pedro Pascal Maxwell",
-                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    UserAvatarRelativePath = "avatar-placeholder.png",
                     MyEmail = (MyEmail)"ppmaxwell@gmail.com",
                 },
                 new User
                 {
                     FullName = (FullName)"Nicolette Ellis",
-                    UserAvatarRelativePath = "/pictures/placeholder.jpg",
+                    UserAvatarRelativePath = "avatar-placeholder.png",
                     MyEmail = (MyEmail)"nellis@gmail.com",
                 },
             };
@@ -138,6 +138,10 @@ namespace UsersRoles.Persistence
                 new Role
                 {
                     RoleName = RoleName.Guest
+                },
+                new Role
+                {
+                    RoleName = RoleName.Test
                 },
             };
 

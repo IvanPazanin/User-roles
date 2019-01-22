@@ -14,6 +14,8 @@ namespace UsersRoles.Application.Users.Queries.GetUsersList
 
         public string Name { get; set; }
 
+        public string UserAvatarRelativePath { get; set; }
+
         public IEnumerable<UserRoleLookupModel> Roles { get; set; }
 
         public static Expression<Func<User, UserLookupModel>> Projection
@@ -25,6 +27,7 @@ namespace UsersRoles.Application.Users.Queries.GetUsersList
                     Id = u.Id,
                     Email = u.MyEmail,
                     Name = u.FullName,
+                    UserAvatarRelativePath = u.UserAvatarRelativePath,
                     Roles = u.UserRoles.Select(ur => new UserRoleLookupModel
                     {
                         RoleId = ur.RoleId,

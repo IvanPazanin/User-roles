@@ -22,7 +22,14 @@ namespace Users_roles.Application.Users.Commands.EditUserRoles
 
         public async Task<Unit> Handle(EditUserRolesCommand request, CancellationToken cancellationToken)
         {
+            var roles = await _context.Roles.ToListAsync(cancellationToken);
             var user = await _context.Users.Include(u => u.UserRoles).SingleOrDefaultAsync(u => u.Id == request.UserId);
+
+            if(user == null)
+                throw new Exception($"User with id:{request.UserId} was not found");
+
+            if (!roles.Any(r => r.Id == request.RoleId))
+                throw new Exception($"There is no role with id:{request.RoleId}");
 
             if (request.HasRole)
                 user.UserRoles.Remove(user.UserRoles.SingleOrDefault(ur => ur.RoleId == request.RoleId));

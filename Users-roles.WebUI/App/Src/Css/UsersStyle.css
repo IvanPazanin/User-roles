@@ -1,0 +1,51 @@
+﻿.flex-roles-container{
+    display: flex;
+    align-content: space-around;
+}
+.flex-roles-child{
+    margin: auto;
+}
+
+.users-row{
+    padding: 30px;
+    margin: 0px;
+}
+
+.users-header {
+    padding: 20px;
+    margin: 0px;
+    background-color: #455f6c;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.users-footer {
+    padding: 30px;
+    text-align: center;
+    background-color: #455f6c;
+    color: white;
+}
+
+.avatar-image {
+    border-radius: 50%;
+}
+
+.gray-row {
+    background-color: #cfd7db;
+}
+
+.white-row{
+    background-color: white; 
+}
+
+.user-email {
+    color: #0d95cd;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.user-name{
+    font-size: 16px;
+    font-weight: 500;
+}

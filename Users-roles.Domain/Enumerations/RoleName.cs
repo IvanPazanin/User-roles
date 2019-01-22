@@ -8,6 +8,7 @@ namespace UsersRoles.Domain.Enumerations
     {
         Admin = 1,
         User = 2,
-        Guest = 3
+        Guest = 3,
+        Test = 4
     }
 }

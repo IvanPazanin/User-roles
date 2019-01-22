@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Users-roles.Persistence\Users-roles.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="App\Src\Images\" />
+  </ItemGroup>
+
 </Project>

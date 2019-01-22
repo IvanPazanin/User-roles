@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UsersRoles.Persistence;
-using UsersRoles.Application.Users.Models;
 
 namespace UsersRoles.Application.Users.Queries.GetUsersList
 {
